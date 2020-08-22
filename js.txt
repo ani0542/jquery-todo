@@ -1,0 +1,42 @@
+$(document).ready(function()
+{
+    $('#btn').click(function()
+    {
+        var textvalue=$('#text').val()
+        
+        if(textvalue!=="")
+        {
+            let lis=$("<li class='list'></li>").text(textvalue)
+        
+            $('ol').append(lis)
+            
+            $('#text').val('')
+    
+            let button =$("<button class='deletebtn'>X</button>")
+    
+            lis.append(button)
+    
+            $('ol').append(lis)
+
+            $('.deletebtn').click(function()
+            {
+                $(this).parent().remove()
+            })
+        }
+        else
+        {
+            // alert('empty field')
+            let parentdiv=$("<div class='parentdiv'></div>")
+            let childdiv=$("<div class='childdiv'></div>").text('field is empty.!')
+            let alertbtn=$("<button class='del'>X</button>")
+            childdiv.append(alertbtn);
+            parentdiv.append(childdiv)
+            $('body').append(parentdiv)
+            $('.del').click(function()
+            {
+                $(parentdiv).remove()
+            })
+        }
+        
+    })
+})
